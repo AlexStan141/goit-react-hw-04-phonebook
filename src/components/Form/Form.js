@@ -8,7 +8,7 @@ export default function Form({ onSubmit }) {
 
   const handleChange = evt => {
     const { name, value } = evt.target;
-    if (name == 'name') {
+    if (name === 'name') {
       setName(value);
     } else {
       setNumber(value);
