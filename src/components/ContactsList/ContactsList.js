@@ -33,7 +33,7 @@ export default function ContactsList({
 }
 
 ContactsList.propTypes = {
-  // contacts: PropTypes.arrayOf(PropTypes.instanceOf(Contact)),  imi da eroare
-  filterString: PropTypes.string,
+  contacts: PropTypes.arrayOf(PropTypes.any).isRequired,
+  filterString: PropTypes.string.isRequired,
   onDeleteElement: PropTypes.func.isRequired,
 };
