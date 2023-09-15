@@ -24,7 +24,7 @@ export default function App() {
 
   useEffect(() => {
 	  localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, []);
+  }, [contacts]);
 
   function checkNameExistance(name) {
     for (let contact of contacts) {
