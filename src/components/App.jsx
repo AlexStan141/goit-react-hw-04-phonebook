@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from './Form/Form';
 import ContactsList from './ContactsList/ContactsList';
 import SearchFilter from './SearchFilter/SearchFilter';
@@ -15,6 +15,16 @@ const INITIAL_CONTACTS = [
 export default function App() {
   const [contacts, setContacts] = useState(INITIAL_CONTACTS);
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem('contacts') != null) {
+      setContacts(JSON.parse(localStorage.getItem('contacts')));
+    }
+  }, []);
+
+  useEffect(() => {
+	  localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, []);
 
   function checkNameExistance(name) {
     for (let contact of contacts) {
